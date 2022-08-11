@@ -4,34 +4,12 @@ import uuid from "uuid/v4";
 import { Editor } from "react-draft-wysiwyg";
 import { convertFromRaw, EditorState, convertToRaw } from "draft-js";
 import { map, filter } from "lodash";
+import DatePicker from 'react-date-picker';
 import {
   hideEditor,
   submitEditorState
 } from "../../../actions/formBuilderActions";
-import DatePicker from 'react-date-picker';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-
-// toolbar options for the WYSIWYG Editor
-const toolbar = {
-  options: [
-    "inline",
-    "list",
-    "textAlign",
-    "fontSize",
-    "link",
-    "history"
-  ],
-  inline: {
-    inDropdown: false,
-    options: [
-      "bold",
-      "italic",
-      "underline",
-      "superscript",
-      "subscript"
-    ]
-  }
-};
 
 class FormEditor extends Component {
   constructor(props) {
@@ -180,7 +158,7 @@ class FormEditor extends Component {
     return (
       <div className="form_editor">
         <div
-          className="jumbotron bg-default mx-auto mt-3"
+          className="jumbotron bg-editor mx-auto mt-3"
           style={{ border: "1px solid #aaa", maxWidth: "800px" }}
         >
           <span
@@ -190,12 +168,15 @@ class FormEditor extends Component {
           >
             <i className="fa fa-times" />
           </span>
-          <h2 className="mb-4">{element} Editor</h2>
+          <h2 className="mb-4">
+            {element}
+            {' '}
+            Editor
+          </h2>
 
           {/* ------------- LABEL ------------- */}
           <h5>Label:</h5>
           <Editor
-            toolbar={toolbar}
             wrapperClassName="demo-wrapper"
             editorClassName="demo-editor"
             editorState={label}

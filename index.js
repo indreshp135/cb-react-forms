@@ -9,11 +9,12 @@ import './css/font-awesome.min.css';
 import "./css/bootstrap.min.css";
 import "./src/App.scss";
 
-const FormBuilder = ({ onSubmit, items }) => (
-	<Provider store={store}>
+const FormBuilder = ({ onSubmit, items, formItems }) => (
+  <Provider store={store}>
     <Builder 
       onSubmit={onSubmit} 
-      items={items} 
+      items={items}
+      formItems={formItems}
     />
   </Provider>
 )
@@ -24,14 +25,14 @@ const FormGenerator = ({
 	readOnly, 
 	onSubmit 
 }) => (
-	<Provider store={store}>
-		<Generator 
-			formData={formData} 
-			responseData={responseData} 
-			readOnly={readOnly} 
-			onSubmit={onSubmit} 
-		/>
-	</Provider>
+  <Provider store={store}>
+    <Generator 
+      formData={formData} 
+      responseData={responseData} 
+      readOnly={readOnly} 
+      onSubmit={onSubmit}
+    />
+  </Provider>
 )
 
 export { FormBuilder, FormGenerator }

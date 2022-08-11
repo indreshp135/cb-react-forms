@@ -5,7 +5,8 @@ import {
   DRAG_ITEM_IN_PREVIEW,
   SHOW_EDITOR,
   HIDE_EDITOR,
-  SUBMIT_EDITOR_STATE
+  SUBMIT_EDITOR_STATE,
+  ADD_A_LIST
 } from "../actions/types";
 
 const initialState = {
@@ -20,6 +21,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         previewItems: [...state.previewItems, action.payload]
+      };
+
+    case ADD_A_LIST:
+      return {
+        ...state,
+        previewItems: [...state.previewItems, ...action.payload]
       };
 
     case REMOVE_ITEM_FROM_PREVIEW:

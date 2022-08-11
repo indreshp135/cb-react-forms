@@ -17,6 +17,7 @@ const spec = {
   endDrag(props, monitor, component) {
     if (!monitor.didDrop()) return; // return if not dropped in the Preview component
     props.addItem(props.data.key);
+    console.log(props.data.key);
   }
 };
 
@@ -30,11 +31,11 @@ const ToolbarItem = props => {
   const { isDragging, connectDragSource, data } = props;
 
   const opacity = isDragging ? 0.5 : 1;
-  const backgroundColor = isDragging ? "lightgray" : "white";
+  const backgroundColor = isDragging ? "lightgray" : "transparent";
 
   return connectDragSource(
     <li
-      style={{ cursor: "pointer", opacity, backgroundColor }}
+      style={{ cursor: "pointer", opacity, backgroundColor, border:"1px solid lightgray" }}
       className="list-group-item mb-1 toolbar-item"
       onClick={() => props.addItem(props.data.key)}
     >

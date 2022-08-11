@@ -8,12 +8,16 @@ import FormEditor from './FormEditor';
 import Toolbar from './Toolbar';
 import Preview from './Preview';
 import defaultItems from "./Toolbar/defaultItems";
+import { addAList } from "../../actions/formBuilderActions";
 
 const Builder = ({
   editorVisible,
   onSubmit,
-  items
+  items,
+  formItems,
+  addAList
 }) => {
+  addAList(formItems);
   return (
     <React.Fragment>
       {
@@ -24,23 +28,23 @@ const Builder = ({
         <div className="row mt-3">
           <div className="col-md-8">
             <Preview 
-              onSubmit={onSubmit} 
+              onSubmit={onSubmit}
             />
           </div>
           <div className="col-md-4">
             <Toolbar 
-              items={items} 
+              items={items}
             />
           </div>
         </div>
       </div>
     </React.Fragment>
-  )
-}
+  )}
 
 Builder.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
-	items: PropTypes.array
+	items: PropTypes.array,
+  formItems: PropTypes.array,
 };
 
 Builder.defaultProps = {
@@ -52,7 +56,9 @@ export default compose(
     state => ({ 
       editorVisible : state.formBuilder.editorVisible 
     }), 
-    null
+    {
+      addAList
+    }
   ),
   DragDropContext(HTML5Backend)
 )(Builder);

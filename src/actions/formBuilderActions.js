@@ -6,7 +6,8 @@ import {
   DRAG_ITEM_IN_PREVIEW,
   SHOW_EDITOR,
   HIDE_EDITOR,
-  SUBMIT_EDITOR_STATE
+  SUBMIT_EDITOR_STATE,
+  ADD_A_LIST
 } from "./types";
 
 export const addItem = element => {
@@ -18,6 +19,13 @@ export const addItem = element => {
     payload: item 
   };
 };
+
+export const addAList = (items) =>  (
+  { 
+    type: ADD_A_LIST, 
+    payload: items
+  }
+)
 
 export const removeItem = id => (
   { 
@@ -61,3 +69,4 @@ export const submitEditorState = (state) => (
     } 
   }
 );
+

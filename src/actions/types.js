@@ -5,6 +5,7 @@ export const DRAG_ITEM_IN_PREVIEW = "DRAG_ITEM_IN_PREVIEW";
 export const SHOW_EDITOR = "SHOW_EDITOR";
 export const HIDE_EDITOR = "HIDE_EDITOR";
 export const SUBMIT_EDITOR_STATE = "SUBMIT_EDITOR_STATE";
+export const ADD_A_LIST = "ADD_A_LIST";
 
 // FORM GENERATOR ACTIONS:
 export const LOAD_DEMO = "LOAD_DEMO";

@@ -21,16 +21,8 @@ const collect = (connect, monitor) => ({
 });
 
 class Preview extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showFinalPreview: false
-    };
-  }
+  
 
-  hideFinalPreview = () => {
-    this.setState({ showFinalPreview: false });
-  };
 
   render() {
     const {
@@ -47,30 +39,16 @@ class Preview extends Component {
 
     return connectDropTarget(
       <div style={{ height: "100%" }} className="mt-3">
-        {this.state.showFinalPreview && (
-          <FinalFormPreview
-            data={previewItems}
-            hideFinalPreview={this.hideFinalPreview}
-          />
-        )}
+        
         <div style={{ height: "100%" }}>
           <div style={{ height: "50px" }}>
             <h3 className="float-left">Form Builder</h3>
             <button
-              className="btn btn-primary float-right ml-3"
-              onClick={() =>
-                this.setState({ showFinalPreview: true })
-              }
-              disabled={isEmpty(previewItems)}
-            >
-              Preview
-            </button>
-            <button
-              className="btn btn-dark float-right ml-3"
+              className="btn btn-danger float-right ml-3"
               onClick={() => onSubmit(JSON.stringify(previewItems))}
               disabled={isEmpty(previewItems)}
             >
-              Export
+              Create Form
             </button>
           </div>
           <div
@@ -78,7 +56,7 @@ class Preview extends Component {
             style={{ border, minHeight: "80vh" }}
           >
             {isEmpty(previewItems) && (
-              <h3 className="list-group-item bg-light text-center text-muted">
+              <h3 className="list-group-item bg-theme text-center text-muted">
                 Select / Drop an item from Toolbox
               </h3>
             )}
