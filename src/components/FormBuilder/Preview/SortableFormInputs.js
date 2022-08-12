@@ -91,7 +91,7 @@ class FormInputs extends Component {
       connectDragSource(
         connectDropTarget(
           <div
-            className="list-group-item mb-1 bg-light preview_item"
+            className="list-group-item mb-1 bg-theme preview_item"
             style={{ opacity }}
             onMouseOver={() => this.setState({ isHovering: true })}
             onMouseLeave={() => this.setState({ isHovering: false })}

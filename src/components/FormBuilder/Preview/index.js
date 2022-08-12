@@ -57,20 +57,11 @@ class Preview extends Component {
           <div style={{ height: "50px" }}>
             <h3 className="float-left">Form Builder</h3>
             <button
-              className="btn btn-primary float-right ml-3"
-              onClick={() =>
-                this.setState({ showFinalPreview: true })
-              }
-              disabled={isEmpty(previewItems)}
-            >
-              Preview
-            </button>
-            <button
               className="btn btn-dark float-right ml-3"
               onClick={() => onSubmit(JSON.stringify(previewItems))}
               disabled={isEmpty(previewItems)}
             >
-              Export
+              Build
             </button>
           </div>
           <div
@@ -78,7 +69,7 @@ class Preview extends Component {
             style={{ border, minHeight: "80vh" }}
           >
             {isEmpty(previewItems) && (
-              <h3 className="list-group-item bg-light text-center text-muted">
+              <h3 className="list-group-item bg-theme text-center text-muted">
                 Select / Drop an item from Toolbox
               </h3>
             )}

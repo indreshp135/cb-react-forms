@@ -13,30 +13,28 @@ const Builder = ({
   editorVisible,
   onSubmit,
   items
-}) => {
-  return (
-    <React.Fragment>
-      {
+}) => (
+  <React.Fragment>
+    {
         editorVisible &&
         <FormEditor />
       }
-      <div className="container">
-        <div className="row mt-3">
-          <div className="col-md-8">
-            <Preview 
-              onSubmit={onSubmit} 
-            />
-          </div>
-          <div className="col-md-4">
-            <Toolbar 
-              items={items} 
-            />
-          </div>
+    <div className="container">
+      <div className="row mt-3">
+        <div className="col-md-8">
+          <Preview 
+            onSubmit={onSubmit}
+          />
+        </div>
+        <div className="col-md-4">
+          <Toolbar 
+            items={items}
+          />
         </div>
       </div>
-    </React.Fragment>
+    </div>
+  </React.Fragment>
   )
-}
 
 Builder.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
